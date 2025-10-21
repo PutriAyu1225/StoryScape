@@ -5,57 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kategori | Story Scape</title>
-     <!-- Link ke ikon favicon yang akan ditampilkan di tab browser -->
-     <link rel="icon" type="image/png" href="../aset/logo.png">
-    <!-- Link ke file CSS khusus untuk halaman kategori -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../aset/logo.png">
     <link rel="stylesheet" href="../css/kategori.css">
 </head>
 
 <body>
     <header>
-        <!-- Tombol menu toggle untuk tampilan mobile -->
-        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <div class="logo-container">
+            <img src="../aset/logo.png" alt="Story Scape Logo">
+            <h1>Story Scape</h1>
+        </div>
+
         <nav>
             <ul>
-                <!-- Tautan navigasi ke halaman utama -->
-                <li><a href="index.html">Home</a></li>
-                <!-- Tautan navigasi ke halaman kategori -->
-                <li><a href="kategori.html">Categories</a></li>
-                <!-- Tautan navigasi ke bagian penulis -->
-                <li><a href="#authors">Author</a></li>
-                <!-- Tautan navigasi ke halaman login -->
-                <li><a href="loginn.html">Sign In</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="kategori.html"><i class="fas fa-book-open"></i> Categories</a></li>
+                <li><a href="#authors"><i class="fas fa-pen"></i> Authors</a></li>
+                <li><a href="loginn.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
             </ul>
         </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
     
     <main>
-        <!-- Judul untuk bagian kategori novel -->
-        <h2>Kategori Novel</h2>
-        <div>
-            <!-- Dropdown untuk memilih kategori -->
+        <h1 class="page-title">Book Categories</h1>
+        
+        <div class="category-selector">
             <select id="category-select"></select>
         </div>
 
-        <!-- Judul untuk daftar buku berdasarkan kategori yang dipilih -->
-        <h2>Books in Selected Category</h2>
-        <div id="books"></div> <!-- Tempat untuk menampilkan daftar buku -->
+        <h2 class="section-title">Books in Selected Category</h2>
+        <div class="books-container" id="books"></div>
 
         <section id="authors">
-            <!-- Judul untuk bagian penulis -->
-            <h2>Authors</h2>
-            <div class="authors-container" id="authors-container">
-                <!-- Tempat untuk menampilkan daftar penulis -->
-            </div>
+            <h2 class="section-title">Featured Authors</h2>
+            <div class="authors-container" id="authors-container"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Story Scape. By putriayusahara</p>
+        <div class="footer-content">
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/PutriAyu1225" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/yuu__ayy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: contact@storyscape.com</p>
+                <p><i class="fas fa-phone"></i> Phone: +62 838-9521-6788</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Story Scape. By putriayusahara</p>
+        </div>
     </footer>
 
-    <!-- Link ke file JavaScript untuk interaksi halaman kategori -->
-    <script src="../js/kategori.js"></script>
-</body>
+       <script src="../js/kategori.js"></script>
 
+</body>
 </html>

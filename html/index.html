@@ -1,118 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Judul halaman yang akan ditampilkan di tab browser -->
     <title>Home | Story Scape</title>
-    <!-- Link ke file CSS eksternal untuk styling halaman -->
-    <link rel="stylesheet" href="../css/index.css">
-    <!-- Favicon yang ditampilkan di tab browser -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/png" href="../aset/logo.png">
+     <!-- Link ke file CSS untuk styling halaman utama -->
+    <link rel="stylesheet" href="../css/index.css">
+  
 </head>
 
 <body>
-    <!-- Header yang berisi navigasi utama -->
     <header>
-        <nav>
-            <!-- Judul website yang juga berfungsi sebagai link ke halaman beranda -->
+        <div class="logo-container">
+            <img src="../aset/logo.png" alt="Story Scape Logo">
             <h1>Story Scape</h1>
+        </div>
 
+        <nav>
             <ul>
-                <!-- Daftar menu navigasi -->
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#recommended">Recommended</a></li>
-                <li><a href="#update">Updates</a></li>
-                <li><a href="kategori.html">Categories</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="loginn.html">Sign In</a></li>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#recommended"><i class="fas fa-star"></i> Recommended</a></li>
+                <li><a href="#update"><i class="fas fa-sync"></i> Updates</a></li>
+                <li><a href="kategori.html"><i class="fas fa-book-open"></i> Categories</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="loginn.html"><i class="fas fa-sign-in-alt"></i> Sign In</a></li>
             </ul>
         </nav>
-        <!-- Tombol untuk toggle menu pada tampilan mobile -->
-        <button class="menu-toggle" onclick="toggleMenu()">&#9776;</button>
+
+        <div class="header-actions">
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
     </header>
 
-    <!-- Bagian utama dari halaman -->
     <main>
-        <!-- Section banner dengan gambar latar dan teks sambutan -->
-        <section class="banner">
-            <div class="banner-content">
-                <!-- Gambar banner -->
-                <img src="../aset/header.jpg" alt="Banner Image" class="banner-image">
-                <div class="text-content">
-                    <div class="open">
-                        <p>
-                            Halo, ini Story Scape!
-                            Selamat datang di Story Scape, tempat di mana kisah-kisah menakjubkan menanti untuk
-                            ditemukan. Di sini, Anda bisa menjelajahi dan membeli berbagai novel yang memikat hati dan
-                            memicu imajinasi
-                        </p>
-                    </div>
-                    <!-- Tombol untuk mulai menjelajah -->
-                    <a href="kategori.html" class="btn">Start</a>
-                </div>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Welcome to Story Scape</h2>
+                <p>Discover amazing stories that captivate your heart and spark your imagination. Explore and purchase various fascinating novels in our extensive collection.</p>
+                <a href="kategori.html" class="btn">Start Exploring</a>
             </div>
         </section>
 
-        <!-- Section untuk menampilkan novel yang direkomendasikan -->
         <section id="recommended">
-            <h2>Recommended</h2>
-            <div id="novel-list"></div>
+            <h2 class="section-title">Recommended Novels</h2>
+            <div class="books-container" id="novel-list"></div>
         </section>
 
-        <!-- Section untuk menampilkan update terbaru -->
         <section id="update">
-            <h2>Latest Updates</h2>
-            <div id="novel-new"></div>
+            <h2 class="section-title">Latest Updates</h2>
+            <div class="books-container" id="novel-new"></div>
         </section>
 
-        <!-- Section 'About' untuk menjelaskan tentang Story Scape -->
         <section id="about">
-            <div class="about-container">
+            <div class="about">
                 <h2>About Story Scape</h2>
-                <p>Selamat datang di Story Scape, tujuan utama Anda untuk menemukan dan membeli novel-novel yang
-                    memikat. Platform kami dirancang untuk memenuhi kebutuhan pembaca dan penulis, menawarkan pengalaman
-                    yang mulus dalam menjelajahi koleksi karya sastra yang beragam.</p>
-                <p>Di Story Scape, misi kami adalah menghubungkan pembaca dengan cerita-cerita yang menginspirasi,
-                    menghibur, dan memancing pemikiran. Kami percaya pada kekuatan bercerita untuk mengubah hidup dan
-                    membangun koneksi yang dalam antara penulis dan pembacanya.
-                </p>
-                <p>
-                    Temukan Dunia Baru
-                    Masuklah ke dalam perpustakaan besar kami yang berisi novel-novel dengan berbagai genre dan
-                    kategori. Apakah Anda penggemar roman, misteri, fantasi, atau fiksi ilmiah, Story Scape memiliki
-                    sesuatu untuk semua orang. Pilihan yang dikurasi dengan baik memastikan Anda dapat dengan mudah
-                    menemukan novel yang sesuai dengan minat dan preferensi Anda.
-                </p>
+                <p>Welcome to Story Scape, your premier destination for discovering and purchasing captivating novels. Our platform is designed to meet the needs of both readers and writers, offering a seamless experience in exploring a diverse collection of literary works.</p>
+                <p>At Story Scape, our mission is to connect readers with stories that inspire, entertain, and provoke thought. We believe in the power of storytelling to transform lives and build deep connections between writers and their readers.</p>
+                <p>Discover New Worlds: Step into our vast library of novels spanning various genres and categories. Whether you're a fan of romance, mystery, fantasy, or science fiction, Story Scape has something for everyone. Our carefully curated selection ensures you can easily find novels that match your interests and preferences.</p>
             </div>
         </section>
     </main>
 
-    <!-- Footer yang berisi informasi kontak dan link media sosial -->
     <footer>
         <div class="footer-content">
-            <div class="footer-icons">
-                <!-- Link ke profil media sosial -->
-                <a href="https://www.facebook.com" target="_blank"><img
-                        src="https://cdn-icons-png.flaticon.com/128/2175/2175193.png" alt="Facebook"></a>
-                <a href="https://github.com/PutriAyu1225" target="_blank"> <img
-                        src="https://cdn-icons-png.flaticon.com/128/733/733609.png" alt="GitHub"></a>
-                <a href="https://www.instagram.com/yuu__ayy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                    target="_blank"><img src="https://cdn-icons-png.flaticon.com/128/1384/1384031.png" alt="Instagram"></a>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/PutriAyu1225" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/yuu__ayy?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
-            <div class="footer-contact">
-                <!-- Informasi kontak -->
-                <p>Email: contact@storyscape.com</p>
-                <p>Phone: +62 838-9521-6788</p>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> Email: contact@storyscape.com</p>
+                <p><i class="fas fa-phone"></i> Phone: +62 838-9521-6788</p>
             </div>
         </div>
-        <!-- Informasi hak cipta -->
-        <p>&copy; 2024 Story Scape. By putriayusahara</p>
+        <div class="copyright">
+            <p>&copy; 2024 Story Scape. By putriayusahara</p>
+        </div>
     </footer>
-
-    <!-- Link ke file JavaScript eksternal untuk interaktivitas -->
-    <script src="../js/index.js"></script>
+      <script src="../js/index.js"></script>
+    
 </body>
-
 </html>

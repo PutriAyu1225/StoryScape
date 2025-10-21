@@ -1,204 +1,454 @@
-/* Global Styles */
-*, *::before, *::after {
-    box-sizing: border-box; /* Mengatur box-sizing ke border-box agar padding dan border dimasukkan dalam total ukuran elemen */
-}
+ :root {
+            --primary-color: #9a4064;
+            --secondary-color: #b35c7d;
+            --accent-color: #ff6b95;
+            --text-color: #333;
+            --bg-color: #f9f6f7;
+            --card-bg: #ffffff;
+            --header-bg: #9a4064;
+            --footer-bg: #993f63;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-body {
-    font-family: sans-serif; /* Mengatur font default untuk seluruh halaman */
-    margin: 0; /* Menghilangkan margin default */
-    padding: 0; /* Menghilangkan padding default */
-    color: #333; /* Warna teks default */
-    background-image: url(/aset/bg_pink.jpeg); /* Mengatur gambar latar belakang untuk halaman */
-}
+        .dark-mode {
+            --primary-color: #c77d9e;
+            --secondary-color: #a55c7a;
+            --accent-color: #ff8fab;
+            --text-color: #f0f0f0;
+            --bg-color: #1a1a2e;
+            --card-bg: #16213e;
+            --header-bg: #16213e;
+            --footer-bg: #0f3460;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
 
-/* Header and Navigation */
-header {
-    background-color: #9a4064; /* Warna latar belakang header */
-    color: white; /* Warna teks di header */
-    position: fixed; /* Menjaga header tetap di atas saat scroll */
-    width: 100%; /* Lebar penuh */
-    top: 0; /* Posisi di atas halaman */
-    z-index: 1000; /* Menjaga header tetap di atas elemen lainnya */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan pada header */
-    padding: 10px 0; /* Padding vertikal di header */
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
 
-.menu-toggle {
-    display: none; /* Menyembunyikan tombol menu untuk layar besar */
-    font-size: 24px; /* Ukuran font untuk tombol menu */
-    cursor: pointer; /* Mengubah kursor saat berada di atas tombol menu */
-    margin-right: 20px; /* Margin kanan untuk tombol menu */
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease;
+        }
 
-nav {
-    display: flex; /* Mengatur navigasi sebagai flex container */
-    justify-content: space-between; /* Menyebarkan item di sepanjang sumbu utama */
-    align-items: center; /* Menyelaraskan item di sepanjang sumbu silang */
-    padding: 0 20px; /* Padding horizontal pada navigasi */
-}
+        /* Header Styles */
+        header {
+            background-color: var(--header-bg);
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-nav ul {
-    list-style-type: none; /* Menghilangkan bullet points dari daftar */
-    margin: 0; /* Margin default dihapus */
-    padding: 0; /* Padding default dihapus */
-    display: flex; /* Mengatur ul sebagai flex container */
-    flex-wrap: wrap; /* Mengizinkan item untuk membungkus ke baris baru jika diperlukan */
-    justify-content: center; /* Menyebarkan item di tengah */
-}
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-nav ul li {
-    margin: 5px; /* Margin di sekitar item daftar */
-}
+        .logo-container img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-nav ul li a {
-    color: white; /* Warna teks link */
-    text-decoration: none; /* Menghilangkan garis bawah dari link */
-    padding: 10px 20px; /* Padding untuk link */
-    display: block; /* Membuat link sebagai blok agar padding berfungsi */
-    background: #b35c7d; /* Warna latar belakang link */
-    border-radius: 5px; /* Sudut melengkung untuk link */
-    border: 2px solid transparent; /* Border transparan untuk transisi */
-}
+        .logo-container h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
 
-nav ul li a:hover {
-    background-color: #b30045; /* Warna latar belakang saat hover */
-}
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-/* Main Content */
-main {
-    padding-top: 80px; /* Padding top untuk menghindari konten tersembunyi di bawah header fixed */
-    text-align: center; /* Menyelaraskan teks di tengah */
-}
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-#category-select {
-    font-size: 1.2em; /* Ukuran font untuk dropdown kategori */
-    padding: 10px; /* Padding di dalam dropdown */
-    margin: 20px 0; /* Margin vertikal di sekitar dropdown */
-    width: auto; /* Lebar otomatis */
-}
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
 
-option {
-    font-size: 1.2em; /* Ukuran font untuk opsi dropdown */
-}
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-.book {
-    background-color: #ffffff; /* Warna latar belakang buku */
-    padding: 20px; /* Padding di dalam kotak buku */
-    margin: 10px; /* Margin di sekitar kotak buku */
-    border-radius: 10px; /* Sudut melengkung untuk kotak buku */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus di sekitar kotak buku */
-    display: inline-block; /* Menampilkan kotak buku sebagai inline-block untuk penataan horizontal */
-    width: 200px; /* Lebar tetap untuk kotak buku */
-    text-align: center; /* Menyelaraskan teks di tengah kotak buku */
-}
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.book img {
-    max-width: 100%; /* Memastikan gambar tidak melampaui lebar kotak buku */
-    border-radius: 10px; /* Sudut melengkung untuk gambar buku */
-}
-.book-link {
-    color: black; /* Warna link hitam */
-    text-decoration: none; /* Menghapus garis bawah pada link */
-}
+        .theme-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
 
-.author-card {
-    background-color: #ffffff; /* Warna latar belakang kartu penulis */
-    padding: 20px; /* Padding di dalam kartu penulis */
-    margin: 10px; /* Margin di sekitar kartu penulis */
-    border-radius: 10px; /* Sudut melengkung untuk kartu penulis */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus di sekitar kartu penulis */
-    display: inline-block; /* Menampilkan kartu penulis sebagai inline-block untuk penataan horizontal */
-    width: 200px; /* Lebar tetap untuk kartu penulis */
-    text-align: center; /* Menyelaraskan teks di tengah kartu penulis */
-    flex-shrink: 0; /* Mencegah kartu penulis menyusut dalam flex container */
-}
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
-.author-card img {
-    max-width: 100%; /* Memastikan gambar tidak melampaui lebar kartu penulis */
-    border-radius: 10px; /* Sudut melengkung untuk gambar penulis */
-}
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            min-height: calc(100vh - 200px);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
 
-.authors-container {
-    display: flex; /* Mengatur container sebagai flex container */
-    overflow-x: auto; /* Mengizinkan scroll horizontal jika diperlukan */
-    padding: 20px; /* Padding di sekitar container */
-    scroll-behavior: smooth; /* Memastikan scroll halus */
-}
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
 
-/* Footer */
-footer {
-    text-align: center; /* Menyelaraskan teks di tengah footer */
-    padding: 20px; /* Padding di dalam footer */
-    background-color: #993f63; /* Warna latar belakang footer */
-    color: white; /* Warna teks di footer */
-    position: relative; /* Posisi relatif agar footer bisa berada di bawah konten lainnya */
-    bottom: 0; /* Posisi footer di bawah halaman */
-    width: 100%; /* Lebar penuh footer */
-}
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column; /* Mengatur daftar navigasi menjadi kolom pada layar kecil */
-        display: none; /* Menyembunyikan daftar navigasi secara default */
-        width: 100%; /* Lebar penuh untuk daftar navigasi */
-        text-align: left; /* Menyelaraskan teks ke kiri */
-    }
+        /* Category Selector */
+        .category-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
 
-    nav ul.showing {
-        display: block; /* Menampilkan daftar navigasi jika kelas 'showing' ditambahkan */
-    }
-    
-    .menu-toggle {
-        display: block; /* Menampilkan tombol menu pada layar kecil */
-    }
+        #category-select {
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            border: 2px solid var(--primary-color);
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            outline: none;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
 
-    .book, .author-card {
-        width: 100%; /* Mengatur lebar kotak buku dan kartu penulis menjadi 100% pada layar kecil */
-        margin: 10px 0; /* Margin vertikal pada kotak buku dan kartu penulis */
-    }
-}
+        /* Books Section */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
 
-@media (max-width: 480px) {
-    header {
-        padding: 10px 5px; /* Mengurangi padding di header pada layar sangat kecil */
-    }
-    
-    nav ul li a {
-        padding: 8px 15px; /* Mengurangi padding pada link navigasi di layar kecil */
-    }
-    
-    .book, .author-card {
-        padding: 15px; /* Mengurangi padding di dalam kotak buku dan kartu penulis pada layar kecil */
-    }
-    
-    #category-select {
-        font-size: 1em; /* Mengurangi ukuran font untuk dropdown kategori pada layar kecil */
-        padding: 8px; /* Mengurangi padding di dalam dropdown pada layar kecil */
-    }
-}
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
 
-/* Responsive Styles for Select and Options */
-@media (max-width: 768px) {
-    #category-select {
-        font-size: 1em; /* Ukuran font dropdown kategori pada layar kecil */
-        padding: 8px; /* Padding di dalam dropdown pada layar kecil */
-        width: 90%; /* Lebar dropdown kategori pada layar kecil */
-    }
+        .books-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
 
-    option {
-        font-size: 1em; /* Ukuran font untuk opsi dropdown pada layar kecil */
-    }
-}
+        .book-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
 
-@media (max-width: 480px) {
-    #category-select {
-        font-size: 0.9em; /* Ukuran font dropdown kategori pada layar sangat kecil */
-        padding: 6px; /* Padding di dalam dropdown pada layar sangat kecil */
-        width: 100%; /* Lebar penuh untuk dropdown kategori pada layar sangat kecil */
-    }
+        .book-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
 
-    option {
-        font-size: 0.9em; /* Ukuran font untuk opsi dropdown pada layar sangat kecil */
-    }
-}
+        .book-cover {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .book-details {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-color);
+        }
+
+        .book-author {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .buy-btn {
+            margin-top: auto;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .buy-btn:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Authors Section */
+        .authors-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .author-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .author-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .author-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid var(--primary-color);
+        }
+
+        .author-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: white;
+            padding: 30px 20px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Dark mode toggle animation */
+        .theme-toggle i {
+            transition: transform 0.5s ease;
+        }
+
+        .theme-toggle:hover i {
+            transform: rotate(30deg);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            nav ul {
+                gap: 10px;
+            }
+            
+            nav ul li a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .page-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 4%;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                background-color: var(--header-bg);
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding: 20px 0;
+                transition: left 0.3s ease;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                padding: 15px;
+                justify-content: center;
+                border-radius: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .books-container, .authors-container {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container h1 {
+                font-size: 1.5rem;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .books-container, .authors-container {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+            
+            .book-cover {
+                height: 220px;
+            }
+            
+            .author-img {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
